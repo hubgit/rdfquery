@@ -238,7 +238,7 @@
         } else if (atts['typeof'] !== undefined) {
           subject = $.rdf.blank('[]');
         } else if (elem[0].parentNode.nodeType === 1) {
-          subject = context.object || getObjectResource(elem.parent()) || getSubject(elem.parent()).subject;
+          subject = context.object || getSubject(elem.parent()).subject || getObjectResource(elem.parent());
           skip = !r && atts.property === undefined;
         } else {
           subject = docResource;
